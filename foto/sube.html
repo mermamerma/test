@@ -1,0 +1,47 @@
+<!-- Beginning of main page -->
+<html><head>
+<title>Subir Archivo con PHP y AJAX</title>
+</head>
+<body>
+ 
+<form action="sube.php" target="upload_iframe" method="post" enctype="multipart/form-data">
+<input type="hidden" name="fileframe" value="true">
+<input type="file" name="file" id="file" onChange="subirArchivo(this)">
+</form>
+ 
+<script type="text/javascript">
+function subirArchivo(upload_field){
+   //Aqui se puede agregar otras extensiones...
+   //var re_text = /\.jpg|\.png/i;
+	var  re_text = /\.jpg|\.png|\.gif|\.jpeg/i;
+   	var filename = upload_field.value;
+    
+   // Verificando que el tipo.
+   if (filename.search(re_text) == -1){
+		alert("El archivo no es valido \n debe ser .jpg .png .gif .jpeg");
+		upload_field.form.reset();
+		return false;
+	}
+	else {
+		upload_field.form.submit();
+   		document.getElementById('upload_status').value = "Subiendo Archivo...";
+   		return true;
+	}
+	//return false;
+}
+</script>
+ 
+<iframe name="upload_iframe" style="width: 400px; height: 100px; display: none;"></iframe><br >
+Status:<br >
+<input type="text" name="upload_status" id="upload_status" value="No" size="64" disabled>
+<br ><br >
+
+Nombre del Archivo:<br >
+<input type="text" name="filenamei" id="filenamei" value="Ninguno" disabled><br />
+ 
+<div align="center">
+<!--Aqui podemos colocar una imagen por defecto-->
+<img id="img" src="sin_foto.jpg" style="border: 1px solid black;margin: 5px;" width="128"/>
+</div>
+</body>
+</html>

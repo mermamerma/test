@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+var v = '123,4567,8901,';
+
+//var r =  /^\d+$/.test(v);
+var r = /^([0-9])+([,]([0-9])+)*$/.test(v);
+
+if(r)
+	alert('Pasa el patron');
+if (r == false)	
+alert('No cumple el patron'); 
+</script>
+
+</body>
+</html>

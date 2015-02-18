@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteRule ^link([^/]*).html$ rewrite.php?link=$1 [L]
+
